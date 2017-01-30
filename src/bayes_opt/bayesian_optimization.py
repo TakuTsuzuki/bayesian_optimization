@@ -9,7 +9,7 @@ from .helpers import UtilityFunction, unique_rows, PrintLog, acq_max
 
 class BayesianOptimization(object):
 
-    def __init__(self, f, pbounds, verbose=1):
+    def __init__(self, f, pbounds, verbose=False):
         """
         :param f:
             Function to be maximized.
@@ -210,6 +210,7 @@ class BayesianOptimization(object):
                  acq='ucb',
                  kappa=2.576,
                  xi=0.0,
+                 value=False,
                  **gp_params):
         """
         Main optimization method.
@@ -307,6 +308,7 @@ class BayesianOptimization(object):
                 self.plog.print_step(self.X[-1], self.Y[-1], warning=pwarning)
 
             # Keep track of total number of iterations
+            """
             self.i += 1
 
             self.res['max'] = {'max_val': self.Y.max(),
@@ -315,10 +317,14 @@ class BayesianOptimization(object):
                                }
             self.res['all']['values'].append(self.Y[-1])
             self.res['all']['params'].append(dict(zip(self.keys, self.X[-1])))
+            """
 
         # Print a final report if verbose active.
         if self.verbose:
             self.plog.print_summary()
+            
+        if value:
+            return self.Y[-1]
 
     def points_to_csv(self, file_name):
         """
