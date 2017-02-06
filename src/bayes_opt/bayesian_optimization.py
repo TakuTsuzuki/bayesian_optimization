@@ -308,7 +308,7 @@ class BayesianOptimization(object):
                 self.plog.print_step(self.X[-1], self.Y[-1], warning=pwarning)
 
             # Keep track of total number of iterations
-            """
+            
             self.i += 1
 
             self.res['max'] = {'max_val': self.Y.max(),
@@ -317,7 +317,7 @@ class BayesianOptimization(object):
                                }
             self.res['all']['values'].append(self.Y[-1])
             self.res['all']['params'].append(dict(zip(self.keys, self.X[-1])))
-            """
+            
 
         # Print a final report if verbose active.
         if self.verbose:
