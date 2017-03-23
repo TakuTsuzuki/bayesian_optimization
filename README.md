@@ -2,8 +2,8 @@
  bayesian optimization for protocol optimization
 
 ## Dependancies
-*numpy
-*scipy
-*matplotlib
-*sklearn
+* numpy
+* scipy
+* matplotlib
+* sklearn
 
